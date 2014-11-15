@@ -1,6 +1,15 @@
 import QtQuick 2.0
 
-Rectangle {
-    width: 100
-    height: 62
+Rectangle{
+
+    anchors.fill: parent
+    color: "transparent"
+
+    BottomControls{
+        id: bottomcontrols
+    }
+
+    TopPager{
+        id: toppager
+    }
 }

@@ -1,24 +1,22 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.1
+import "qrc:/components"
 
 ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    color: "black"
 
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("File")
-            MenuItem {
-                text: qsTr("Exit")
-                onTriggered: Qt.quit();
-            }
-        }
+    //place the video stream in the background
+    VideoStream{
+        id: stream
+        anchors.fill: parent
     }
 
-    Text {
-        text: qsTr("Hello World")
-        anchors.centerIn: parent
+    //place the heads up display (HUD) in the foreground
+    HUD{
+        id: hud
     }
+
 }

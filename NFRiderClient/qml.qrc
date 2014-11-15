@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>main.cpp</file>
+        <file>components/VideoStream.qml</file>
+        <file>components/HUD.qml</file>
+        <file>components/Spinner.qml</file>
+        <file>components/TopPager.qml</file>
+        <file>components/BottomControls.qml</file>
     </qresource>
 </RCC>
