@@ -7,5 +7,7 @@
         <file>components/Spinner.qml</file>
         <file>components/TopPager.qml</file>
         <file>components/BottomControls.qml</file>
+        <file>components/VideoScreen.qml</file>
+        <file>components/ScreenFrame.qml</file>
     </qresource>
 </RCC>
