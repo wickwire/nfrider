@@ -11,7 +11,8 @@ Item {
 
     MediaPlayer {
         id: mediaplayer
-        source: "http://192.168.55.100:5007/go7.mp4"
+        source: "http://192.168.55.100:5007/go7.mp4" //A20
+        //source: "http://192.168.55.100:5004/go.mp4" //A10
         autoPlay: true
         autoLoad: true
 
