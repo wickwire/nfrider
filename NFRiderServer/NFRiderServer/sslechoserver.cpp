@@ -17,8 +17,12 @@ SslEchoServer::SslEchoServer(quint16 port, QObject *parent) :
                                               QWebSocketServer::SecureMode,
                                               this);
     QSslConfiguration sslConfiguration;
-    QFile certFile(QStringLiteral("C:\\Users\\nuno.faria\\Downloads\\fbab8d9c-eaad-4b1d-b774-c62d68503ca0.private_public\\fbab8d9c-eaad-4b1d-b774-c62d68503ca0.public.pem"));
-    QFile keyFile(QStringLiteral("C:\\Users\\nuno.faria\\Downloads\\fbab8d9c-eaad-4b1d-b774-c62d68503ca0.private_public\\fbab8d9c-eaad-4b1d-b774-c62d68503ca0.private.pem"));
+    //QFile certFile(QStringLiteral("C:\\Users\\nuno.faria\\Downloads\\fbab8d9c-eaad-4b1d-b774-c62d68503ca0.private_public\\fbab8d9c-eaad-4b1d-b774-c62d68503ca0.public.pem"));
+    //QFile keyFile(QStringLiteral("C:\\Users\\nuno.faria\\Downloads\\fbab8d9c-eaad-4b1d-b774-c62d68503ca0.private_public\\fbab8d9c-eaad-4b1d-b774-c62d68503ca0.private.pem"));
+
+    QFile certFile(QStringLiteral("/home/wickwire/c92e3eb2-058b-4432-adc7-3d3e531eba0a.private_public/c92e3eb2-058b-4432-adc7-3d3e531eba0a.public.pem"));
+    QFile keyFile(QStringLiteral("/home/wickwire/c92e3eb2-058b-4432-adc7-3d3e531eba0a.private_public/c92e3eb2-058b-4432-adc7-3d3e531eba0a.private.pem"));
+
     certFile.open(QIODevice::ReadOnly);
     keyFile.open(QIODevice::ReadOnly);
     QSslCertificate certificate(&certFile, QSsl::Pem);

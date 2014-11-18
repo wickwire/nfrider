@@ -16,7 +16,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    sslechoserver.cpp
+    sslechoserver.cpp \
+    tcpechoserver.cpp
 
 HEADERS += \
-    sslechoserver.h
+    sslechoserver.h \
+    tcpechoserver.h

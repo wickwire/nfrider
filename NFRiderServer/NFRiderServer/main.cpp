@@ -1,13 +1,17 @@
 #include <QCoreApplication>
 #include "sslechoserver.h"
+#include <stdlib.h>
+#include "tcpechoserver.h"
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    SslEchoServer server(1234);
+    SslEchoServer WebSocketServer(7777);
+    TcpEchoServer TcpServer;
 
-    Q_UNUSED(server);
+    Q_UNUSED(WebSocketServer);
+    Q_UNUSED(TcpServer);
 
     return a.exec();
 }
