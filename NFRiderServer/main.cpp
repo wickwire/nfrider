@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
+    //choose the certificate paths based on OS - developing in different environments nowadays ;)
     #if defined(Q_OS_WIN)
            qDebug()<<  "Windows";
            QFile certFile(QStringLiteral("D:\\QT.CODE\\NFRider\\openssl.certificates\\windows\\fbab8d9c-eaad-4b1d-b774-c62d68503ca0.public.pem"));
