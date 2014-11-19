@@ -51,7 +51,7 @@ void SslEchoServer::onNewConnection()
 {
     QWebSocket *pSocket = m_pWebSocketServer->nextPendingConnection();
 
-    qDebug() << "Client connected:" << pSocket->peerName() << pSocket->origin();
+    qDebug() << "WS: Client Connected";
 
     connect(pSocket, &QWebSocket::textMessageReceived, this, &SslEchoServer::processTextMessage);
     connect(pSocket, &QWebSocket::binaryMessageReceived,
@@ -65,7 +65,7 @@ void SslEchoServer::onNewConnection()
 void SslEchoServer::processTextMessage(QString message)
 {
 
-    qDebug() << "Received message: " << message;
+    qDebug() << "WS: Msg: " << message;
 
     QWebSocket *pClient = qobject_cast<QWebSocket *>(sender());
     if (pClient)
@@ -85,7 +85,7 @@ void SslEchoServer::processBinaryMessage(QByteArray message)
 
 void SslEchoServer::socketDisconnected()
 {
-    qDebug() << "Client disconnected";
+    qDebug() << "WS: Client disconnected";
     QWebSocket *pClient = qobject_cast<QWebSocket *>(sender());
     if (pClient)
     {
@@ -96,5 +96,5 @@ void SslEchoServer::socketDisconnected()
 
 void SslEchoServer::onSslErrors(const QList<QSslError> &)
 {
-    qDebug() << "Ssl errors occurred";
+    qDebug() << "WS: Ssl errors occurred";
 }

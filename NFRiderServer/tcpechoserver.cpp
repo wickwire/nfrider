@@ -35,7 +35,7 @@ TcpEchoServer::TcpEchoServer(quint16 port, QObject *parent)
              << tr("Move backward")
              << tr("Turn right");
 
-    connect(tcpServer, SIGNAL(newConnection()), this, SLOT(sendDirection()));
+    connect(tcpServer, SIGNAL(newConnection()), this, SLOT(clientConnected()));
 }
 
 void TcpEchoServer::sessionOpened(quint16 port)
@@ -76,6 +76,11 @@ void TcpEchoServer::sessionOpened(quint16 port)
     qDebug() << "TCP Echo Server listening on port " << port;
 }
 
+
+void TcpEchoServer::clientConnected()
+{
+    qDebug() << "TCP: Client just connected!";
+}
 
 void TcpEchoServer::sendDirection()
 {

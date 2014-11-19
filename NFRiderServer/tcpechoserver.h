@@ -15,6 +15,7 @@ public:
     TcpEchoServer(quint16 port, QObject *parent = 0);
 
 private slots:
+    void clientConnected();
     void sessionOpened(quint16 port);
     void sendDirection();
 

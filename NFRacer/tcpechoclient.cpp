@@ -9,13 +9,15 @@ TcpEchoClient::TcpEchoClient(QObject *parent) :
 
     tcpSocket = new QTcpSocket(this);
 
-    QTimer *timer = new QTimer(this);
-        connect(timer, SIGNAL(timeout()), this, SLOT(requestNewFortune()));
-        timer->start(1000);
+//    QTimer *timer = new QTimer(this);
+//        connect(timer, SIGNAL(timeout()), this, SLOT(TcpServerConnect()));
+//        timer->start(1000);
+
+    QTimer::singleShot(0, this, SLOT(TcpServerConnect()));
 
 }
 
-void TcpEchoClient::requestNewFortune()
+void TcpEchoClient::TcpServerConnect()
 {
     QHostAddress tcpHost("127.0.0.1");
     quint16 tcpHostPort = 8888;
@@ -24,12 +26,10 @@ void TcpEchoClient::requestNewFortune()
     tcpSocket->connectToHost(tcpHost, tcpHostPort);
     qDebug() << "Connected to host";
 
-    QTimer *timer = new QTimer(this);
-        connect(timer, SIGNAL(timeout()), this, SLOT(readFortune()));
-        timer->start(1000);
+    //connect(tcpSocket, directionReceived, this, &TcpEchoClient::getDirection);
 }
 
-void TcpEchoClient::readFortune()
+void TcpEchoClient::getDirection()
 {
     QDataStream in(tcpSocket);
     in.setVersion(QDataStream::Qt_4_0);

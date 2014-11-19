@@ -21,7 +21,7 @@ void SslEchoClient::onConnected()
     qDebug() << "WebSocket connected";
     //this connect returned client message from the server back to the client, from the example - we're not using it
     //connect(&m_webSocket, &QWebSocket::textMessageReceived,this, &SslEchoClient::onTextMessageReceived);
-    m_webSocket.sendTextMessage(QStringLiteral("Client connected"));
+    //m_webSocket.sendTextMessage(QStringLiteral("Client connected"));
 }
 
 void SslEchoClient::onDirectionPressed(QString key)

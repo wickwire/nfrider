@@ -14,8 +14,8 @@ public:
     explicit TcpEchoClient(QObject *parent = 0);
 
 private slots:
-    void requestNewFortune();
-    void readFortune();
+    void TcpServerConnect();
+    void getDirection();
     void displayError(QAbstractSocket::SocketError socketError);
     void sessionOpened();
 
