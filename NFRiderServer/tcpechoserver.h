@@ -12,10 +12,10 @@ class TcpEchoServer : public QObject
     Q_OBJECT
 
 public:
-    TcpEchoServer(QObject *parent = 0);
+    TcpEchoServer(quint16 port, QObject *parent = 0);
 
 private slots:
-    void sessionOpened();
+    void sessionOpened(quint16 port);
     void sendDirection();
 
 private:

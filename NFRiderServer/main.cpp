@@ -22,9 +22,10 @@ int main(int argc, char *argv[])
     #endif
 
     int wsPort = 7777;
+    int tcpPort = 8888;
 
     SslEchoServer WebSocketServer(wsPort, &certFile, &keyFile);
-    TcpEchoServer TcpServer;
+    TcpEchoServer TcpServer(tcpPort);
 
     Q_UNUSED(WebSocketServer);
     Q_UNUSED(TcpServer);

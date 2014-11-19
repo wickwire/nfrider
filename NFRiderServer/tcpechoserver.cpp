@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "tcpechoserver.h"
 
-TcpEchoServer::TcpEchoServer(QObject *parent)
+TcpEchoServer::TcpEchoServer(quint16 port, QObject *parent)
 :   QObject(parent), tcpServer(0), networkSession(0)
 {
     QNetworkConfigurationManager manager;
@@ -27,7 +27,7 @@ TcpEchoServer::TcpEchoServer(QObject *parent)
         qDebug() << "Opening network session.";
         networkSession->open();
     } else {
-        sessionOpened();
+        sessionOpened(port);
     }
 
     fortunes << tr("Move forward")
@@ -38,9 +38,8 @@ TcpEchoServer::TcpEchoServer(QObject *parent)
     connect(tcpServer, SIGNAL(newConnection()), this, SLOT(sendDirection()));
 }
 
-void TcpEchoServer::sessionOpened()
+void TcpEchoServer::sessionOpened(quint16 port)
 {
-    port = 8888;
     // Save the used configuration
     if (networkSession) {
         QNetworkConfiguration config = networkSession->configuration();
