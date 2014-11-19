@@ -24,6 +24,9 @@ private:
     QNetworkSession *networkSession;
     int port;
     QStringList fortunes;
+
+public slots:
+    void cenas();
 };
 
 #endif

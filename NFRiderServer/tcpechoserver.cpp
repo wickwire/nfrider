@@ -84,6 +84,7 @@ void TcpEchoServer::clientConnected()
 
 void TcpEchoServer::sendDirection()
 {
+    qDebug() << "aqui!!!";
     QByteArray block;
     QDataStream out(&block, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_4_0);
@@ -98,4 +99,8 @@ void TcpEchoServer::sendDirection()
 
     clientConnection->write(block);
     clientConnection->disconnectFromHost();
+}
+
+void TcpEchoServer::cenas(){
+    qDebug() << "cenas!!!";
 }

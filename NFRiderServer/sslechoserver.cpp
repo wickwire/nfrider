@@ -1,4 +1,5 @@
 #include "sslechoserver.h"
+#include "tcpechoserver.h"
 #include "QtWebSockets/QWebSocketServer"
 #include "QtWebSockets/QWebSocket"
 #include <QtCore/QDebug>
@@ -72,6 +73,10 @@ void SslEchoServer::processTextMessage(QString message)
     {
         pClient->sendTextMessage(message);
     }
+
+    TcpEchoServer *tcpServer;
+
+    tcpServer->cenas();
 }
 
 void SslEchoServer::processBinaryMessage(QByteArray message)
