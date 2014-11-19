@@ -2,6 +2,7 @@
 #define TCPECHOSERVER_H
 
 #include <QtCore/QObject>
+#include <QStringList>
 
 class QTcpServer;
 class QNetworkSession;
@@ -15,11 +16,13 @@ public:
 
 private slots:
     void sessionOpened();
+    void sendDirection();
 
 private:
     QTcpServer *tcpServer;
     QNetworkSession *networkSession;
     int port;
+    QStringList fortunes;
 };
 
 #endif
