@@ -17,6 +17,8 @@ TcpEchoClient::TcpEchoClient(QObject *parent) :
 
     connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(getDirection()));
 
+    connect(tcpSocket, SIGNAL(disconnected()), this, SLOT(TcpServerConnect()));
+
 }
 
 void TcpEchoClient::TcpServerConnect()

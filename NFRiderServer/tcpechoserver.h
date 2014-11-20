@@ -27,7 +27,9 @@ private:
     int port;
     QStringList fortunes;
 
-public slots:
+signals:
+    void badjoras();
+
 };
 
 #endif
