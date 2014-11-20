@@ -35,7 +35,8 @@ TcpEchoServer::TcpEchoServer(quint16 port, QObject *parent)
              << tr("Move backward")
              << tr("Turn right");
 
-    connect(tcpServer, SIGNAL(newConnection()), this, SLOT(clientConnected()));
+    //connect(tcpServer, SIGNAL(newConnection()), this, SLOT(clientConnected()));
+    connect(tcpServer, SIGNAL(newConnection()), this, SLOT(sendDirection()));
 }
 
 void TcpEchoServer::sessionOpened(quint16 port)
@@ -84,23 +85,19 @@ void TcpEchoServer::clientConnected()
 
 void TcpEchoServer::sendDirection()
 {
-    qDebug() << "aqui!!!";
-    QByteArray block;
-    QDataStream out(&block, QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_4_0);
-    out << (quint16)0;
-    out << fortunes.at(qrand() % fortunes.size());
-    out.device()->seek(0);
-    out << (quint16)(block.size() - sizeof(quint16));
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        out << (quint16)0;
+        out << fortunes.at(qrand() % fortunes.size());
+        out.device()->seek(0);
+        out << (quint16)(block.size() - sizeof(quint16));
 
-    QTcpSocket *clientConnection = tcpServer->nextPendingConnection();
-    connect(clientConnection, SIGNAL(disconnected()),
-            clientConnection, SLOT(deleteLater()));
+        QTcpSocket *clientConnection = tcpServer->nextPendingConnection();
+        connect(clientConnection, SIGNAL(disconnected()),
+                clientConnection, SLOT(deleteLater()));
 
-    clientConnection->write(block);
-    clientConnection->disconnectFromHost();
-}
-
-void TcpEchoServer::cenas(){
-    qDebug() << "cenas!!!";
+        clientConnection->write(block);
+        clientConnection->disconnectFromHost();
+    //! [5]
 }

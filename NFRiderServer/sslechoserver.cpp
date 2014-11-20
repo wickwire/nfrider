@@ -73,10 +73,6 @@ void SslEchoServer::processTextMessage(QString message)
     {
         pClient->sendTextMessage(message);
     }
-
-    TcpEchoServer *tcpServer;
-
-    tcpServer->cenas();
 }
 
 void SslEchoServer::processBinaryMessage(QByteArray message)

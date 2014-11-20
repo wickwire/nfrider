@@ -5,6 +5,7 @@
 #include <QStringList>
 
 class QTcpServer;
+class QTcpSocket;
 class QNetworkSession;
 
 class TcpEchoServer : public QObject
@@ -21,12 +22,12 @@ private slots:
 
 private:
     QTcpServer *tcpServer;
+    QTcpSocket *tcpSocket;
     QNetworkSession *networkSession;
     int port;
     QStringList fortunes;
 
 public slots:
-    void cenas();
 };
 
 #endif
