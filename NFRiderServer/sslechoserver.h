@@ -18,6 +18,7 @@ public:
     virtual ~SslEchoServer();
 
 Q_SIGNALS:
+    void wsMessageReceived();
 
 private Q_SLOTS:
     void onNewConnection();

@@ -9,10 +9,6 @@ TcpEchoClient::TcpEchoClient(QObject *parent) :
 
     tcpSocket = new QTcpSocket(this);
 
-//    QTimer *timer = new QTimer(this);
-//        connect(timer, SIGNAL(timeout()), this, SLOT(TcpServerConnect()));
-//        timer->start(1000);
-
     QTimer::singleShot(0, this, SLOT(TcpServerConnect()));
 
     connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(getDirection()));
@@ -28,7 +24,7 @@ void TcpEchoClient::TcpServerConnect()
     blockSize = 0;
     tcpSocket->abort();
     tcpSocket->connectToHost(tcpHost, tcpHostPort);
-    qDebug() << "Connected to host";
+    //qDebug() << "Connected to host";
 }
 
 void TcpEchoClient::getDirection()
@@ -49,7 +45,7 @@ void TcpEchoClient::getDirection()
     QString nextFortune;
     in >> nextFortune;
 
-    qDebug() << "New Quote: " << nextFortune;
+    qDebug() << "TS: Msg: " << nextFortune;
     currentFortune = nextFortune;
 }
 

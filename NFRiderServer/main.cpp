@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QtGlobal>
 #include <QFile>
+#include <QObject>
 
 int main(int argc, char *argv[])
 {
@@ -26,6 +27,8 @@ int main(int argc, char *argv[])
 
     SslEchoServer WebSocketServer(wsPort, &certFile, &keyFile);
     TcpEchoServer TcpServer(tcpPort);
+
+    QObject::connect(&WebSocketServer, SIGNAL(wsMessageReceived()), &TcpServer, SLOT(sendDirection()));
 
     Q_UNUSED(WebSocketServer);
     Q_UNUSED(TcpServer);

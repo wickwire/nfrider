@@ -34,16 +34,6 @@ TcpEchoServer::TcpEchoServer(quint16 port, QObject *parent)
              << tr("Turn left")
              << tr("Move backward")
              << tr("Turn right");
-
-    //connect(tcpServer, SIGNAL(newConnection()), this, SLOT(clientConnected()));
-
-    QTimer *timer = new QTimer(this);
-        connect(timer, SIGNAL(timeout()), this, SIGNAL(badjoras()));
-        timer->start(20000);
-
-    //connect(tcpServer, SIGNAL(newConnection()), this, SLOT(sendDirection()));
-
-    connect(this, SIGNAL(badjoras()), this, SLOT(sendDirection()));
 }
 
 void TcpEchoServer::sessionOpened(quint16 port)

@@ -18,7 +18,6 @@ public:
 private slots:
     void clientConnected();
     void sessionOpened(quint16 port);
-    void sendDirection();
 
 private:
     QTcpServer *tcpServer;
@@ -27,8 +26,8 @@ private:
     int port;
     QStringList fortunes;
 
-signals:
-    void badjoras();
+public slots:
+    void sendDirection();
 
 };
 
