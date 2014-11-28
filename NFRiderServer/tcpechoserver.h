@@ -24,10 +24,9 @@ private:
     QTcpSocket *tcpSocket;
     QNetworkSession *networkSession;
     int port;
-    QStringList fortunes;
 
 public slots:
-    void sendDirection();
+    void sendDirection(QString tcpMessage);
 
 };
 

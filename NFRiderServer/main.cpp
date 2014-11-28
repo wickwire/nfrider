@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     SslEchoServer WebSocketServer(wsPort, &certFile, &keyFile);
     TcpEchoServer TcpServer(tcpPort);
 
-    QObject::connect(&WebSocketServer, SIGNAL(wsMessageReceived()), &TcpServer, SLOT(sendDirection()));
+    QObject::connect(&WebSocketServer, SIGNAL(wsMessageReceived(QString)), &TcpServer, SLOT(sendDirection(QString)));
 
     Q_UNUSED(WebSocketServer);
     Q_UNUSED(TcpServer);

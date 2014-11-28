@@ -29,11 +29,6 @@ TcpEchoServer::TcpEchoServer(quint16 port, QObject *parent)
     } else {
         sessionOpened(port);
     }
-
-    fortunes << tr("Move forward")
-             << tr("Turn left")
-             << tr("Move backward")
-             << tr("Turn right");
 }
 
 void TcpEchoServer::sessionOpened(quint16 port)
@@ -80,13 +75,13 @@ void TcpEchoServer::clientConnected()
     qDebug() << "TCP: Client just connected!";
 }
 
-void TcpEchoServer::sendDirection()
+void TcpEchoServer::sendDirection(QString tcpMessage)
 {
         QByteArray block;
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
         out << (quint16)0;
-        out << fortunes.at(qrand() % fortunes.size());
+        out << tcpMessage;
         out.device()->seek(0);
         out << (quint16)(block.size() - sizeof(quint16));
 
